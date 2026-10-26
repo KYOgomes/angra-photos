@@ -1,0 +1,33 @@
+name = "album-ilha-grande"
+main = "worker/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Front (Vite) servido como assets estáticos pelo mesmo Worker.
+# Só /api/* passa pelo código do Worker; o resto é arquivo estático (grátis e ilimitado).
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "album-ilha-grande"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "album-db"
+database_id = "5e23586a-e962-4f06-ae35-09b6beaf16e1"
+migrations_dir = "migrations"
+
+[vars]
+R2_ACCOUNT_ID = "a1f117fbf378609771a3399cbb87adb1"
+R2_BUCKET_NAME = "album-ilha-grande"
+
+# Limpeza diária de uploads abandonados (status 'pendente' há mais de 24h).
+[triggers]
+crons = ["0 7 * * *"]
+
+# Secrets (NÃO ficam aqui; defina com `npx wrangler secret put NOME`):
+#   SHARED_PASSWORD, SESSION_SECRET, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY

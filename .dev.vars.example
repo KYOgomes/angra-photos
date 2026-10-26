@@ -1,0 +1,5 @@
+# Copie para .dev.vars (não vai para o git) para rodar a API localmente.
+SHARED_PASSWORD="senha-da-familia"
+SESSION_SECRET="troque-por-uma-string-aleatoria-longa"
+R2_ACCESS_KEY_ID="..."
+R2_SECRET_ACCESS_KEY="..."

@@ -1,0 +1,13 @@
+{
+  "name": "Ilha Grande 2026",
+  "short_name": "Ilha Grande",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#062f42",
+  "theme_color": "#062f42",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
